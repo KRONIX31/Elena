@@ -78,42 +78,77 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 75px;
     background-color: #07262e;
-    z-index: 4;
+    z-index: 400;
 }
 .header_wrapper{
     display: flex;
     flex-direction: row;
     gap: 15px;
-    padding: 5px 35px;
+    padding: 8px 25px 8px 16px;
     align-items: center;
     height: 100%;
-    justify-content: end;
+    justify-content: space-between;
+}
+.header_left_block{
+    background-color: #0e4e5f80;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+}
+.header_left_block a{
+    font-size: calc(var(--index)*0.8);
+}
+.header_right_block{
+    border-radius: 10px;
+    background-color: #0e4e5f80;
+}
+.header_right_block a{
+    border-radius: 10px;
+}
+.header_submenu{
+    display: none;
 }
 .header_wrapper a{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     font-family: 'Manrope', sans-serif;
-    font-size: 16px;
     color: white;
-    background: transparent;
+    background-color: transparent;
     border: 0px;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
     position: relative;
-    transition: 0.3s;
+    transition: 0.4s background-color;
     text-decoration: none;
+}
+.header_wrapper .header_left_block a:first-child{
+    border-radius: 10px 0 0px 10px;
+}
+.header_wrapper .header_left_block a:last-child{
+    border-radius: 0 10px 10px 0;
+}
+.nav_active_hash{
+    background-color: rgba(35, 114, 134, 0.687) !important;
 }
 .header_wrapper a:hover{
     background-color: rgba(34, 87, 100, 0.387);
 }
-.header_wrapper a:hover::after{
+.header_wrapper a:hover::after, .nav_active_hash::after{
     content: '';
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
     height: 2px;
     background-color: #86a6ed;
     position: absolute;
+}
+.nav_active_hash::after{
+    width: 70% !important;
 }
 .wrapper{
     display: flex;
@@ -127,7 +162,7 @@ header{
     color: azure;
 }
 .fullscreen_body{
-    padding: 69px 27px 30px 20px;
+    padding: 81px 27px 30px 20px;
     z-index: 2;
     position: relative;
     display: flex;
@@ -143,15 +178,15 @@ header{
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    gap: 55px;
+    gap: 45px;
 }
 .deviz{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     max-width: 800px;
 }
-.fullscreen video{
+#fullscreen_first video{
     position: fixed;
     top: 0;
     left: 0;
@@ -172,7 +207,7 @@ header{
     flex-direction: column;
     gap: 20px;
     /*box-shadow: 0px 0px 140px 10px rgb(132 110 255 / 92%);*/
-    background-color: rgb(0 0 0 / 45%);
+    background: linear-gradient(180deg, rgba(255,103,104,0) 0%, #2b8faa6f 100%);
     padding: 10px 20px;
     border-radius: 8px;
 }
@@ -209,6 +244,7 @@ header{
 #fullscreen_second .fullscreen_body{
     padding: 20px 0;
     border-top: 8px dashed #00adff;
+    border-bottom: 8px dashed #00adff;
 }
 .fullscreen_second_content_wrapper{
     display: flex;
@@ -272,6 +308,30 @@ header{
 }
 
 
+/*     */
+
+
+.mdeia_vizitka_wrapper{
+    padding: 25px 65px 20px 56px;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#media_vizitka{
+    min-height: auto;
+}
+#media_vizitka video, #media_vizitka iframe{
+    width: 100%;
+    height: calc(var(--index)*24);
+    object-fit: cover;
+    max-width: 1100px;
+    border-radius: 15px;
+}
+
+
+
+
 
 @media screen and (max-width: 950px){
     .fullscreen_second_content{
@@ -296,14 +356,22 @@ header{
         margin-bottom: 13px;
     }
 }
+
 @media screen and (max-width: 750px){
+    .header_left_block a{
+        font-size: calc(var(--index)*1);
+    }
+
     .fullscreen_body{
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 30px;
     }
     .fullscreen_logo{
         width: 210px;
         height: 210px;
+    }
+    .fullscreen_information_block{
+        gap: 25px;
     }
 }
 
@@ -311,10 +379,17 @@ header{
     .fullscreen_title{
         font-size: 29px;
     }
+    .fullscreen_logo {
+        width: 190px;
+        height: 190px;
+    }
     .fullscreen_paragraph{
         font-size: 14px;
     }
     .second_content_image_wrapper img{
         width: 260px;
+    }
+    .mdeia_vizitka_wrapper{
+        padding: 20px 36px 20px 25px;
     }
 }

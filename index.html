@@ -22,13 +22,31 @@
 </head>
 <body>
     <header>
-        <div class="header_wrapper">
-            <a href="#fullscrenn_first">Общая информация</a>
-            <a href="">Медио визитка</a>
-        </div>
+        <nav class="header_wrapper">
+            <div class="header_left_block">
+                <a href="#fullscreen_first">Общая информация</a>
+                <a href="#fullscreen_second">second</a>
+                <a href="#media_vizitka">Медио визитка</a>
+            </div>
+            <div class="header_right_block">
+                <a class="deploy_button" href="#!">Подробнее</a>
+                <div class="header_submenu">
+                    <a href="#!">Опыт работы</a>
+                    <a href="#!">Методическая работа</a>
+                    <a href="#!">Повышение квалификации</a>
+                    <a href="#!">Рабочик программы</a>
+                    <a href="#!">Опыт использования оборудования "Точки роста"</a>
+                    <a href="#!">Мои достижения</a>
+                    <a href="#!">Достижения учеников</a>
+                    <a href="#!">Ученику</a>
+                    <a href="#!">Информация для родителей</a>
+                    <a href="#!">Учителю</a>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="wrapper">
-        <section class="fullscreen" id="fullscrenn_first">
+        <section class="fullscreen" id="fullscreen_first">
             <div class="fullscreen_body main_fullscreen">
                 <div class="fullscreen_information_block">
                     <div class="fullscreen_information">
@@ -48,7 +66,7 @@
                 </div>
                 <p class="deviz">«Наша задача не в том, чтобы сделать себя необходимыми нашим детям, а, напротив, в том, чтобы помочь им научиться по возможности обходиться без нас» (К.О. Конради)</p>
             </div>
-            <video preload="auto" pip="false" muted autoplay loop>
+            <video preload="auto" pip="false" muted autoplay loop playsinline>
                 <source type="video/webm" src="media/Science.webm">
             </video>
         </section>
@@ -86,6 +104,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="fullscreen" id="media_vizitka">
+            <div class="mdeia_vizitka_wrapper">
+                <!--<video preload="metadata" controls poster="media/drone_poster.jpg">
+                    <source type="video/mp4" src="media/mediaVizitka.mp4">
+                </video>-->
+                <iframe src="https://www.youtube.com/embed/Ujd3sRP4MvQ" title="mediavisitka" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </section>
     </div>
