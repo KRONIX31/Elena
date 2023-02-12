@@ -1,7 +1,15 @@
+const body = document.querySelector('body')
 const videoBackground = document.querySelector('video')
 const deployButton = document.querySelector('.deploy_button')
 const headerSubMenu = document.querySelector('.header_submenu')
-videoBackground.playbackRate = 0.71
+const progressbar = document.querySelector('.progressbar')
+/*    */
+const galleryImgs = document.querySelectorAll('.certificate_wrapper > img')
+const galleryModals = document.querySelectorAll('.certificate_wrapper > .image_modal')
+const galleryModalsImgs = document.querySelectorAll('.certificate_wrapper > .image_modal img')
+const galleryModalsCloses = document.querySelectorAll('.certificate_wrapper > .image_modal .image_modal_close')
+videoBackground.playbackRate = 0.85
+
 
 if (sessionStorage.getItem("is_reloaded")) {
 	console.log('Страница перезагружена')
@@ -22,14 +30,21 @@ const observer = new IntersectionObserver((entries) => {
         }
     })
 }, {
-    threshold: 0.5,
+    threshold: 0.7,
 })
 
 document.querySelectorAll('section').forEach((section)=>{
     observer.observe(section)
 })
 
-deployButton.addEventListener('click', ()=>{
+window.onscroll = function(){
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    progressbar.style.width = scrolled + "%";
+}
+deployButton.addEventListener('click', (e)=>{
+    e.preventDefault()
     if(deployButton.classList.contains('nav_active_hash')){
         deployButton.classList.remove('nav_active_hash')
         headerSubMenu.classList.remove('header_submenu_active')
@@ -53,3 +68,20 @@ window.onclick = function(e) {
         }
     }
 }
+
+/*   */
+
+galleryModalsCloses.forEach((closeButton)=>{
+    closeButton.addEventListener('click', ()=>{
+        closeButton.parentElement.style.display = 'none'
+        body.style.overflow = 'overlay'
+    })
+})
+galleryImgs.forEach((image)=>{
+    image.addEventListener('click', ()=>{
+        body.style.overflow = 'hidden'
+        const data = image.dataset.img
+        galleryModals[data - 1].style.display = 'flex'
+        galleryModalsImgs[data - 1].src = image.src
+    })
+})
